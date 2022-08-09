@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./SearchEngine.css";
 
 export default function SearchEngine() {
   let [word, setWord] = useState(null);
+
+  // documentation: https://dictionaryapi.dev/
 
   function handleSubmit(event) {
     event.preventDefault();
