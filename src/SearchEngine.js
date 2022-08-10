@@ -7,8 +7,14 @@ export default function SearchEngine() {
 
   // documentation: https://dictionaryapi.dev/
 
+  function displayWord(response) {
+    console.log(response.data[0].word);
+  }
+
   function handleSubmit(event) {
+    let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
     event.preventDefault();
+    axios.get(apiUrl).then(displayWord);
   }
 
   function updateWord(event) {
@@ -21,7 +27,6 @@ export default function SearchEngine() {
         <input type="text" autoFocus="on" onChange={updateWord}></input>
         <input type="submit" value="Search"></input>
       </form>
-      <div className="searchedWord">{word}</div>
     </div>
   );
 }
