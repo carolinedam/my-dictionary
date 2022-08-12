@@ -8,10 +8,14 @@ function App() {
       <div className="container">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>We're building a dictionary app!</p>
           <SearchEngine />
         </header>
-        <footer>Coded by Caroline D'Ambro</footer>
+        <footer>
+          Coded by Caroline D'Ambro and{" "}
+          <a href="https://github.com/carolinedam" target="_blank">
+            open-sourced on GitHub
+          </a>
+        </footer>
       </div>
     </div>
   );
