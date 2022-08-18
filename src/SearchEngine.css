@@ -1,5 +1,4 @@
-.searchedWord {
-  font-weight: 700;
-  font-style: italic;
-  color: red;
+.SearchedWord {
+  border-radius: 5px;
+  width: 50%;
 }
