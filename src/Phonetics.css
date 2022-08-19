@@ -1,0 +1,25 @@
+.Phonetics {
+  height: 50px;
+}
+
+.Phonetics .text {
+  font-weight: bold;
+  color: gray;
+}
+
+.Phonetics a {
+  background: white;
+  border-radius: 20px;
+  color: burlywood;
+  font-weight: thin;
+  text-decoration: none;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  transition: all 150ms ease-in-out;
+}
+
+.Phonetics a:hover {
+  background: burlywood;
+  color: white;
+}

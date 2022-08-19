@@ -1,4 +1,13 @@
-.SearchedWord {
+.Searched-word {
   border-radius: 5px;
+  font-size: 20px;
   width: 50%;
+}
+
+.Search-button {
+  font-style: italic;
+  background-color: burlywood;
+  margin: 20px;
+  font-size: 14px;
+  padding: 5px 30px;
 }

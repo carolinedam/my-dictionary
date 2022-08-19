@@ -32,10 +32,13 @@ export default function SearchEngine(props) {
     return (
       <div className="SearchEngine">
         <form className="Searchform" onSubmit={handleSubmit}>
-          <section>
-            <input type="text" autoFocus="on" onChange={updateWord} class="SearchedWord"></input>
-          </section>
-          <input type="submit" value="Search"></input>
+          <input
+            type="text"
+            autoFocus="on"
+            onChange={updateWord}
+            class="Searched-word"
+          ></input>
+          <input type="submit" value="Go!" className="Search-button"></input>{" "}
           <Results results={results} />
         </form>
       </div>

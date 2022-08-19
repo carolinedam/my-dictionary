@@ -8,7 +8,11 @@ function App() {
       <div className="container">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <SearchEngine defaultKeyword="wine" />
+          <section>
+            <h2>Enter a word to search:</h2>
+
+            <SearchEngine defaultKeyword="hello" />
+          </section>
         </header>
         <footer>
           Coded by Caroline D'Ambro and{" "}
