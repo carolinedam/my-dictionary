@@ -7,6 +7,7 @@ export default function SearchEngine(props) {
   let [word, setWord] = useState(props.defaultKeyword);
   let [results, setResults] = useState(null);
   let [loaded, setLoaded] = useState(false);
+  let [photos, setPhotos] = useState(null);
 
   // documentation: https://dictionaryapi.dev/
 
@@ -14,9 +15,22 @@ export default function SearchEngine(props) {
     setResults(response.data[0]);
   }
 
+  function handleDictionaryResponse(response) {
+    console.log(response.data);
+  }
+
   function search() {
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
     axios.get(apiUrl).then(displayWord);
+
+    let pexelsApiKey =
+      "563492ad6f917000010000017d91846c13a34d02bcabc2a991f2a060";
+
+    let headers = { Authorization: `Bearer${pexelsApiKey}` };
+    let pexelsApiUrl = `https://api.pexels.com/v1/${word}?per_page=1`;
+    axios
+      .get(pexelsApiUrl, { headers: headers })
+      .then(handleDictionaryResponse);
   }
 
   function handleSubmit(event) {
@@ -36,7 +50,7 @@ export default function SearchEngine(props) {
             type="text"
             autoFocus="on"
             onChange={updateWord}
-            class="Searched-word"
+            className="Searched-word"
           ></input>
           <input type="submit" value="Go!" className="Search-button"></input>{" "}
           <Results results={results} />
