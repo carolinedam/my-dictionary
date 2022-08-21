@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Results from "./Results";
+import Photos from "./Photos";
 import "./SearchEngine.css";
 
 export default function SearchEngine(props) {
@@ -16,18 +17,17 @@ export default function SearchEngine(props) {
   }
 
   function handleDictionaryResponse(response) {
-    console.log(response.data);
+    setPhotos(response.data.photos);
   }
 
   function search() {
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
     axios.get(apiUrl).then(displayWord);
 
-    let pexelsApiKey =
-      "563492ad6f917000010000017d91846c13a34d02bcabc2a991f2a060";
+    let pexelsApiKey = "563492ad6f917000010000017d91846c13a3";
+    let pexelsApiUrl = `https://api.pexels.com/v1/${word}?per_page=9`;
+    let headers = { Authorization: `Bearer ${pexelsApiKey}` };
 
-    let headers = { Authorization: `Bearer${pexelsApiKey}` };
-    let pexelsApiUrl = `https://api.pexels.com/v1/${word}?per_page=1`;
     axios
       .get(pexelsApiUrl, { headers: headers })
       .then(handleDictionaryResponse);
@@ -52,8 +52,9 @@ export default function SearchEngine(props) {
             onChange={updateWord}
             className="Searched-word"
           ></input>
-          <input type="submit" value="Go!" className="Search-button"></input>{" "}
+          <input type="submit" value="Go!" className="Search-button"></input>
           <Results results={results} />
+          <Photos photos={photos} />
         </form>
       </div>
     );
