@@ -4,6 +4,8 @@ import Results from "./Results";
 import Photos from "./Photos";
 import "./SearchEngine.css";
 
+// All requests made with the client will be authenticated
+
 export default function SearchEngine(props) {
   let [word, setWord] = useState(props.defaultKeyword);
   let [results, setResults] = useState(null);
@@ -24,7 +26,8 @@ export default function SearchEngine(props) {
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
     axios.get(apiUrl).then(displayWord);
 
-    let pexelsApiKey = "563492ad6f917000010000017d91846c13a3";
+    let pexelsApiKey =
+      "563492ad6f917000010000017d91846c13a34d02bcabc2a991f2a060";
     let pexelsApiUrl = `https://api.pexels.com/v1/${word}?per_page=9`;
     let headers = { Authorization: `Bearer ${pexelsApiKey}` };
 
