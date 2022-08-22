@@ -28,7 +28,7 @@ export default function SearchEngine(props) {
 
     let pexelsApiKey =
       "563492ad6f917000010000017d91846c13a34d02bcabc2a991f2a060";
-    let pexelsApiUrl = `https://api.pexels.com/v1/${word}?per_page=9`;
+    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${word}&per_page=9`;
     let headers = { Authorization: `Bearer ${pexelsApiKey}` };
 
     axios
